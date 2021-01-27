@@ -42,3 +42,5 @@ self.addEventListener('refreshOffline', function(response) {
         return cache.put(offlineSite, response);
     });
 });
+
+

@@ -20,45 +20,52 @@
 
     <div class="container-fluid background-img-game">
 
-
         <div class="row">
             <div class="col-2 accountColumn">
                 <div class="row">
-                    profilbild
-                </div>
-                <div class="row">
                     <div class="col-12">
-                        <p class="userData">@user.fullName.getOrElse("None")</p>
+                        <div class="centered-buttons">
+                            <a class="back-btn" href="http://localhost:9000/home"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row profilePicture">
+                    <div class="col-12">
+                        <img src="@assets.path("styles/images/profilePicture.png")" width="100">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="userData">@user.email.getOrElse("None")</p>
+                        <p class="userName">@user.fullName.getOrElse("None")</p>
                     </div>
                 </div>
                 <div class="row">
-                    homebutton
+                    <div class="col-12">
+                        <p class="userEmail">@user.email.getOrElse("None")</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-10">
+            <div class="col-10 infoColumn">
                 <div class="row">
                     <div class="col-12 accountTitle">
                         <img src="@assets.path("styles/images/accountTitle.png")" width="800">
                     </div>
                 </div>
                 <div class="row data">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <div class="row">
-                            <p class="col-md-6"><strong>@messages("first.name")
-                                :</strong></p><p class="col-md-6">@user.firstName.getOrElse("None")</p>
+                            <p class="col-2"><strong>@messages("first.name")
+                                :</strong></p>
+                            <p class="col-10">@user.firstName.getOrElse("None")</p>
                         </div>
                         <div class="row">
-                            <p class="col-md-6"><strong>@messages("last.name")
-                                :</strong></p><p class="col-md-6">@user.lastName.getOrElse("None")</p>
+                            <p class="col-2"><strong>@messages("last.name")
+                                :</strong></p>
+                            <p class="col-10">@user.lastName.getOrElse("None")</p>
                         </div>
                     </div>
                 </div>
-                <div class="row data">
+                <div class="row data twoFactor">
                 @if(totpInfoOpt.nonEmpty) {
                     <h2>@messages("totp.enabled.title")</h2>
                     <a href="@controllers.routes.TotpController.disableTotp">
